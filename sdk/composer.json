@@ -1,0 +1,22 @@
+{
+    "name": "teamgate/php-api-sdk",
+    "description": "Teamgate API SDK for PHP",
+    "homepage": "https://github.com/teamgate/php-sdk",
+    "authors": [
+        {
+            "name": "Liudas Šumskas",
+            "email": "liushaz@gmail.com"
+        }
+    ],
+    "type": "library",
+    "require": {
+        "php": ">=5.5",
+        "ext-curl": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Teamgate\\": "src/"
+        }
+    },
+    "license": "MIT"
+}
