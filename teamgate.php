@@ -38,7 +38,7 @@ function teamgate_wpcf7_mail_sent($contact_form) {
                     array('leads', 'people', 'companies', 'deals')
                 )) {
         try {
-            require dirname(__FILE__) . '/sdk/vendor/autoload.php';
+            require dirname(__FILE__) . '/php-sdk/vendor/autoload.php';
             $api = new \Teamgate\API([
                 'apiKey' => esc_attr(get_option('teamgate-app-key')),
                 'authToken' => esc_attr(get_option('teamgate-auth-token'))
