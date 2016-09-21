@@ -158,6 +158,7 @@ function teamgate_settings_page() {
 <div class="wrap">
 <h2>Teamgate CRM Settings</h2>
 <form  method="post" action="">
+    <?php wp_nonce_field('teamgate-settings-apply'); ?>
 	<p><?php echo esc_html(__( 'API Key', 'teamgate' )); ?>:
 	<input type="text" name="teamgate-app-key" value="<?php echo esc_attr(get_option('teamgate-app-key')); ?>" size="85"/></p>
     <p><?php echo esc_html(__( 'Auth Token', 'teamgate' )); ?>:
@@ -173,7 +174,7 @@ function teamgate_settings_page() {
 add_action( 'admin_init', 'teamgate_settings_admin_data');
 
 function teamgate_settings_admin_data() {
-    if (isset($_POST['teamgate-app-key']) && isset($_POST['teamgate-auth-token'])) {
+    if (isset($_POST['teamgate-app-key']) && isset($_POST['teamgate-auth-token']) && check_admin_referer('teamgate-settings-apply')) {
         if (!empty($_POST['teamgate-app-key'])) {
             update_option('teamgate-app-key', sanitize_text_field($_POST['teamgate-app-key'])); 
         } else {
