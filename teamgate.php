@@ -146,11 +146,13 @@ function wpcf7_tg_pane_teamgate_submit($contact_form) {
 add_action( 'admin_menu', 'teamgate_settings_admin_menu' );
 
 function teamgate_settings_admin_menu() {
-	add_submenu_page( 'wpcf7',
-		__( 'Teamgate CRM', 'teamgate' ),
-		__( 'Teamgate CRM', 'teamgate' ),
-		'wpcf7_edit_contact_forms', 'wpcf7-teamgate',
-		'teamgate_settings_page' );
+    if (current_user_can('administrator')) {
+    add_submenu_page( 'wpcf7',
+        __( 'Teamgate CRM', 'teamgate' ),
+        __( 'Teamgate CRM', 'teamgate' ),
+        'wpcf7_edit_contact_forms', 'wpcf7-teamgate',
+        'teamgate_settings_page' );
+    }
 }
 
 function teamgate_settings_page() {
