@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
-register_activation_hook(__FILE__, 'teamgate_leads_activation_check');
+register_activation_hook(__FILE__, 'teamgate_activation_check');
 
 function teamgate_activation_check() {
     if (!in_array('contact-form-7/wp-contact-form-7.php', apply_filters('active_plugins', get_option('active_plugins')))) {
